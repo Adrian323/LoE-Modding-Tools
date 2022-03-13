@@ -20,3 +20,5 @@ This tool exposes Legends of Ellaria's API through a Unity project. We're using 
 2. Download / Clone this repository, and open it as a unity project.
 3. You can compile mods by clicking <b>Mod Tools => Build Mod</b>. By default, mods are built to the "Mods" directory
 4. You can copy the generated mods to the legends of ellaria mods folder <b>[Steam Folder]\steamapps\common\Legends of Ellaria\Mods</b>
+
+We included an example mod <b>More Money.umod</b>. You may create and test multiple mods by clicking on the <b>+</b> button on the <b>Mod Tools => Export Settings</b> menu
