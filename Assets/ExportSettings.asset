@@ -20,9 +20,9 @@ MonoBehaviour:
     modVersion: 1.0.0
     modDescription: 'This is an example mod for LoE modding tools.  Adds a random
       amount of gold every day. '
-    modAssetPath: M:/LoE_Main/LoE-Modding-Tools/Assets/Legends Of Ellaria Modding
-      Tools/Example Mods/Example Mod - MoreMoney
-    modExportPath: M:/LoE_Main/LoE-2019/Assets/Mods
+    modAssetPath: Assets/Legends Of Ellaria Modding Tools/Example Mods/Example Mod
+      - MoreMoney
+    modExportPath: Mods
     modIcon: {fileID: 0}
   logLevel: 3
   optimizeMode: 0
