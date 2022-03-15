@@ -7,7 +7,7 @@ public class ModLogics_MoreMoney : ModLogics_Base
     public int ExtraMoneyPerDayMin = 100;
     public int ExtraMoneyPerDayMax = 300;
 
-    public override void OnIngameHourPassed()
+    public override void OnIngameDayPassed()
     {
         
         int amountToAdd = Random.Range(ExtraMoneyPerDayMin, ExtraMoneyPerDayMax);
