@@ -23,7 +23,7 @@ MonoBehaviour:
     modAssetPath: Assets/Legends Of Ellaria Modding Tools/Example Mods/Example Mod
       - MoreMoney
     modExportPath: Mods
-    modIcon: {fileID: 0}
+    modIcon: {fileID: 2800000, guid: a77bc5b31d1e4874b997e62e5f514d51, type: 3}
   logLevel: 3
   optimizeMode: 0
   compressionLevel: 2

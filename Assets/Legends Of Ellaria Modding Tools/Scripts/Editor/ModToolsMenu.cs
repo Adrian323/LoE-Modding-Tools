@@ -67,7 +67,19 @@ namespace Legends_Of_Ellaria_Modding_Tools.Generated
             }
             UMod.BuildEngine.ModToolsUtil.StartBuildAndRun(settings);
         }
-        
+
+
+        [UnityEditor.MenuItem("Mod Tools/Start Steam Workshop Manager", priority = 47)]
+        internal static void Menu_Steam_Workshop_Manager___r()
+        {
+            UMod.ModTools.Export.ExportSettings settings = UMod.ModTools.Export.ExportSettings.Active.Load();
+            if ((settings == null))
+            {
+                throw new UMod.ModLoadException("The export settings are missing from this mod tools package");
+            }
+            EditorSteamWorkshopManagerStarter.StartWorkshopManager();
+        }
+
         [UnityEditor.MenuItem("Mod Tools/Help", priority=67)]
         internal static void Menu_Help()
         {
