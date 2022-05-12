@@ -20,11 +20,6 @@ public class EditorSteamWorkshopManagerStarter : EditorWindow
     void OnGUI()
     {
 
-        UMod.ModTools.Export.ExportSettings exportSettings = UMod.ModTools.Export.ExportSettings.Active;
-
-        
-        Debug.Log("Test");
-        return;
         GUILayout.Label("Loading Workshop Manager...", EditorStyles.boldLabel);
 
         // if workshop scene is closed, open it
