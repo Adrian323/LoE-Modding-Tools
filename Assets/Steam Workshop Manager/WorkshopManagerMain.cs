@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class WorkshopManagerMain : MonoBehaviour
 {
+#if UNITY_EDITOR
+
     public WorkshopManagerItem ItemPrefab;
     public RectTransform GridTransform;
 
@@ -335,6 +337,13 @@ public class WorkshopManagerMain : MonoBehaviour
             WorkshopMessagesManager.SetMessageText("Result: " + GetActionResultString(p_callback.m_eResult));
         }
 
+        // now clear the upload directory
+
+        if (Directory.Exists(uploadDirectory))
+        {
+            Directory.Delete(uploadDirectory, true);
+        }
+
     }
 
     string  CopyFile(string sourcePath, string destinationDirectory)
@@ -389,121 +398,12 @@ public class WorkshopManagerMain : MonoBehaviour
             else if (item.CurrentStatus == WorkshopManagerItem.Status.Unknown)
             {
                 SetButtonState(item, true);
-                //////////////////// OLD CODE /////////////////////
-                //CreateItemResult_t pCallback;
-                //bool success;
-                //bool finished;
-
-                //PublishedFileId_t publishedField = new PublishedFileId_t();
-
-                //SteamUGC.CreateItem(AppId_t
-                ////publishedField.
-                //SteamUGC.CreateQueryUserUGCRequest GetItemState(publishedField);
-                //CallResult<PublishedFileId_t> createCallRes = CallResult<PublishedFileId_t>.Create((pCallback, bIOFailure) =>
-                //{
-
-                //});
-
-                ////2. Next Register a call result handler for CreateItemResult_t
-                //SteamAPICall_t handle = SteamUGC.CreateItem(new AppId_t(621070), EWorkshopFileType.k_EWorkshopFileTypeCommunity);
-                //createCallRes.Set(handle);
-                ////////////////////////////////////////////////
-                ///
-
-          
-                //click.Play();
-                //1. All workshop items begin their existence with a call to ISteamUGC::CreateItem
-                //CallResult<CreateItemResult_t>  createCallRes = CallResult<CreateItemResult_t>.Create(OnCreateItem);
-
-                ////2. Next Register a call result handler for CreateItemResult_t
-                //SteamAPICall_t handle = SteamUGC.CreateItem(new AppId_t(621070), EWorkshopFileType.k_EWorkshopFileTypeCommunity);
-                //createCallRes.Set(handle);
-
-
+                
             }
         }
 
-        //if (itemToLoad != null)
-        //{
-
-        //}
-
+       
         WorkshopMessagesManager.SetMessageText("Waiting for command");
     }
-
-   /*
-
-    void OnCreateItem(CreateItemResult_t pCallback, bool bIOFailure)
-    {
-        //3. First check the m_eResult to ensure that the item was created successfully.
-        //4. When the call result handler is executed, read the m_nPublishedFileId value and store for future updates to the workshop item (e.g. in a project file associated with the creation tool).
-        //Debug.Log("m_eResult: " + pCallback.m_eResult + "   Published File ID: " + pCallback.m_nPublishedFileId + "   User needs to accept legal agreement: " + pCallback.m_bUserNeedsToAcceptWorkshopLegalAgreement);
-        //5. The m_bUserNeedsToAcceptWorkshopLegalAgreement variable should also be checked and if it's true, the user should be redirected to accept the legal agreement. See the Workshop Legal Agreement section for more details.
-        //https://partner.steamgames.com/doc/features/workshop/implementation#Legal
-
-        if (!pCallback.m_bUserNeedsToAcceptWorkshopLegalAgreement)
-        {
-            //Once a workshop item has been created and a PublishedFileId_t value has been returned, the content of the workshop item can be populated and uploaded to the Steam Workshop.
-            //An item update begins with a call to SteamUGC.StartItemUpdate
-
-            updateHandle = SteamUGC.StartItemUpdate(new AppId_t(621070), pCallback.m_nPublishedFileId); //may need to do a create and onFunction to set the handle of UGCUpdateHandle_t
-            SteamUGC.SetItemTitle(updateHandle, title);
-            SteamUGC.SetItemDescription(updateHandle, description);
-            SteamUGC.SetItemContent(updateHandle, path);
-
-            string newImagePath = "";
-            if (m_textPath != null)
-            {
-                newImagePath = m_textPath.Replace("\\", "/");
-            }
-            if (File.Exists(newImagePath))
-            {
-                SteamUGC.SetItemPreview(updateHandle, newImagePath);
-                //print("Setting " + newImagePath + " as preview image");
-            }
-
-            SteamUGC.SetItemVisibility(updateHandle, ERemoteStoragePublishedFileVisibility.k_ERemoteStoragePublishedFileVisibilityPublic); //k_ERemoteStoragePublishedFileVisibilityPublic = 0, so it should be set to public with this line
-
-            //Once the update calls have been completed, calling ISteamUGC::SubmitItemUpdate will initiate the upload process to the Steam Workshop.
-            SteamUGC.SubmitItemUpdate(updateHandle, "New workshop item");
-            SteamFriends.ActivateGameOverlayToWebPage("steam://url/CommunityFilePage/" + pCallback.m_nPublishedFileId);
-
-            Debug.Log("Uploaded ");
-            //animationBoi.SetTrigger("submittedToWorkshop");
-        }
-        else
-        {
-            redirectToLegal();
-        }
-    }
-
-    public void redirectToLegal()
-    {
-        SteamFriends.ActivateGameOverlayToWebPage("https://steamcommunity.com/sharedfiles/workshoplegalagreement");
-    }
-
-    //public void SubmitToWorkshop()
-    //{
-    //    //path = Application.persistentDataPath + "/" + title;
-
-
-    //    if (File.Exists(path) && properImageSelected)
-    //    {
-    //        if (SteamManager.Initialized)
-    //        {
-    //            //click.Play();
-    //            //1. All workshop items begin their existence with a call to ISteamUGC::CreateItem
-    //            createCallRes = CallResult<CreateItemResult_t>.Create(OnCreateItem);
-
-    //            //2. Next Register a call result handler for CreateItemResult_t
-    //            SteamAPICall_t handle = SteamUGC.CreateItem(new AppId_t(621070), EWorkshopFileType.k_EWorkshopFileTypeCommunity);
-    //            createCallRes.Set(handle);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Could not upload");
-    //    }
-    //}
-   */
+#endif
 }

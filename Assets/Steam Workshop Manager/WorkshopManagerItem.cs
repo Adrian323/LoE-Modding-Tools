@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WorkshopManagerItem : MonoBehaviour
 {
+#if UNITY_EDITOR
+
     public enum Status
     {
         Unknown,
@@ -41,5 +43,5 @@ public class WorkshopManagerItem : MonoBehaviour
     public UMod.ModTools.Export.ExportProfileSettings RelatedExport;
 
 
-
+#endif
 }
