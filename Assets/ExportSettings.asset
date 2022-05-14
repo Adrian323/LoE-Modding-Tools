@@ -18,8 +18,9 @@ MonoBehaviour:
     modName: More Money
     modAuthor: Larkon Studio
     modVersion: 1.0.0
-    modDescription: 'This is an example mod for LoE modding tools.  Adds a random
-      amount of gold every day. '
+    modDescription: Once a day, your kingdom receives a random amount of gold from
+      an anonymous benefactor.  You can edit the amount at [b][Installation Folder]\ModsConfig\More
+      Money.cfg[/b]
     modAssetPath: Assets/Legends Of Ellaria Modding Tools/Example Mods/Example Mod
       - MoreMoney
     modExportPath: Mods
